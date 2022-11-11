@@ -1,0 +1,22 @@
+{{>header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">병원 이름</th>
+        <th scope="col">병원 주소</th>
+        <th scope="col">전화 번호</th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider">
+    {{#hospitals}}
+        <tr>
+            <th>{{id}}</th>
+            <td>{{hospitalName}}</td>
+            <td>{{fullAddress}}</td>
+            <td>{{phone}}</td>
+        </tr>
+    {{/hospitals}}
+    </tbody>
+</table>
+{{>footer}}

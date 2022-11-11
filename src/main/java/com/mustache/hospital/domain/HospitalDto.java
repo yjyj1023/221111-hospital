@@ -27,7 +27,7 @@ public class HospitalDto {
     private int totalNumberOfBeds;
     private float totalAreaSize;
 
-    public HospitalEntity HospitalDto() {
+    public HospitalEntity toEntity() {
         return new HospitalEntity(
                 this.id, this.openServiceName, this.openLocalGovernmentCode,
                 this.managementNumber, this.licenseDate, this.businessStatus,

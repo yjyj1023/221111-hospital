@@ -2,17 +2,18 @@ package com.mustache.hospital.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Table(name = "nation_wide_hospitals")
 public class HospitalEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int id;
     private String openServiceName;
@@ -24,6 +25,7 @@ public class HospitalEntity {
     private String phone;
     private String fullAddress;
     private String roadNameAddress;
+    @Column(name = "hospital_name")
     private String hospitalName;
     private String businessTypeName;
     private int healthcareProviderCount;
