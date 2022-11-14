@@ -53,4 +53,16 @@ class HospitalRepositoryTest {
         List<HospitalEntity> hospitals = hospitalRepository.findByHospitalNameEndsWith("병원");// 의원, 병원, 이비인후과, 치과
         printHospitalNameAndAddress(hospitals);
     }
+
+    @Test
+    void between() {
+        List<HospitalEntity> hospitals = hospitalRepository.findByPatientRoomCountBetween(10, 20);
+        printHospitalNameAndAddress(hospitals);
+    }
+
+    @Test
+    void orderBy() {
+        List<HospitalEntity> hospitals = hospitalRepository.findByPatientRoomCountBetweenOrderByPatientRoomCountDesc(10, 20);
+        printHospitalNameAndAddress(hospitals);
+    }
 }
