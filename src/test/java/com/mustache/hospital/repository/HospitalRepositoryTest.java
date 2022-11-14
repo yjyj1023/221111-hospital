@@ -16,6 +16,14 @@ class HospitalRepositoryTest {
     @Autowired
     HospitalRepository hospitalRepository;
 
+    void printHospitalNameAndAddress(List<HospitalEntity> hospitals) {
+        for (var hospital : hospitals) {
+            System.out.printf("%s | %s %f\n", hospital.getHospitalName(), hospital.getRoadNameAddress(), hospital.getTotalAreaSize());
+        }
+
+        System.out.println(hospitals.size());
+    }
+
     @Test
     @DisplayName("BusinessTypeName이 보건소 보건지소 보건진료소인 데이터가 잘 나오는지")
     void findByBusinessTypeNameIn() {
@@ -25,9 +33,24 @@ class HospitalRepositoryTest {
 
         inClues.add("보건진료소");
         List<HospitalEntity> hospitals = hospitalRepository.findByBusinessTypeNameIn(inClues);
-        for (var hospital :
-                hospitals) {
-            System.out.println(hospital.getHospitalName());
-        }
+        printHospitalNameAndAddress(hospitals);
+    }
+
+    @Test
+    void containing() {
+        List<HospitalEntity> hospitals = hospitalRepository.findByRoadNameAddressContaining("송파구");
+        printHospitalNameAndAddress(hospitals);
+    }
+
+    @Test
+    void startsWith() {
+        List<HospitalEntity> hospitals = hospitalRepository.findByHospitalNameStartsWith("경희");// 가톨릭 서울 연세 경희1
+        printHospitalNameAndAddress(hospitals);
+    }
+
+    @Test
+    void endsWith() {
+        List<HospitalEntity> hospitals = hospitalRepository.findByHospitalNameEndsWith("병원");// 의원, 병원, 이비인후과, 치과
+        printHospitalNameAndAddress(hospitals);
     }
 }
