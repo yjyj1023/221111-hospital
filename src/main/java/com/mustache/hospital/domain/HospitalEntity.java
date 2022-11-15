@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @Table(name = "nation_wide_hospitals")
 public class HospitalEntity {
     @Id
-
     private int id;
     private String openServiceName;
     private int openLocalGovernmentCode;
@@ -49,5 +48,16 @@ public class HospitalEntity {
         this.patientRoomCount = patientRoomCount;
         this.totalNumberOfBeds = totalNumberOfBeds;
         this.totalAreaSize = totalAreaSize;
+    }
+
+    // HospitalEntity를 HospitalResponse Dto로 만들어주는 부분
+    public static HospitalResponse of(HospitalEntity hospital) {
+        return new HospitalResponse(hospital.getId(),
+                hospital.getRoadNameAddress(),
+                hospital.getHospitalName(),
+                hospital.getPatientRoomCount(),
+                hospital.getTotalNumberOfBeds(),
+                hospital.getBusinessTypeName(),
+                hospital.getTotalAreaSize());
     }
 }
