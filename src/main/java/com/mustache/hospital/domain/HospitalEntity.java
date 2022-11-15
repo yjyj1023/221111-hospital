@@ -50,6 +50,8 @@ public class HospitalEntity {
         this.totalAreaSize = totalAreaSize;
     }
 
+
+
     // HospitalEntity를 HospitalResponse Dto로 만들어주는 부분
     public static HospitalResponse of(HospitalEntity hospital) {
         return new HospitalResponse(hospital.getId(),
