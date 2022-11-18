@@ -40,4 +40,11 @@ public class HospitalService {
         return hospitalRepository.findAll(pageable);
 
     }
+
+    @Transactional
+    public List<HospitalEntity> getSearchBoardList(String keyword, Pageable pageable) {
+
+        return hospitalRepository.findByRoadNameAddressContaining(keyword, pageable);
+
+    }
 }
