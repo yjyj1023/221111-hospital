@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @Getter
 public class VisitCreateRequest {
     private Integer hospitalId;
-    private Long userId;
     private String disease;
     private float amount;
 }

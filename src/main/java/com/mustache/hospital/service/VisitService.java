@@ -12,6 +12,7 @@ import com.mustache.hospital.repository.HospitalRepository;
 import com.mustache.hospital.repository.UserRepository;
 import com.mustache.hospital.repository.VisitRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class VisitService {
 
     private final VisitRepository visitRepository;
@@ -45,6 +47,7 @@ public class VisitService {
                 .build();
         visitRepository.save(visit);
     }
+
     public List<VisitResponse> findAllByPage(Pageable pageable) {
         Page<Visit> visits = visitRepository.findAll(pageable);
 
