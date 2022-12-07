@@ -36,7 +36,7 @@ public class HospitalController {
         model.addAttribute("hospitals", hospitalService.getBoardList(pageable));
         model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next", pageable.next().getPageNumber());
-        return "hospital/list";
+        return "hospita/list";
     }
     @GetMapping(value = "/search")
     public String search(Model model, @PageableDefault(size = 10, sort = "id") Pageable pageable, @RequestParam("keyword") String keyword){

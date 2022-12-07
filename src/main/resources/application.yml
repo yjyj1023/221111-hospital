@@ -17,3 +17,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     database : mysql
     hibernate.ddl-auto : update
+
+jwt:
+  token:
+    secret: hello.world.ee.ff
