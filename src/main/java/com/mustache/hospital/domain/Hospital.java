@@ -1,5 +1,6 @@
 package com.mustache.hospital.domain;
 
+import com.mustache.hospital.domain.dto.HospitalResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Table(name = "nation_wide_hospitals")
-public class HospitalEntity {
+public class Hospital {
     @Id
     private int id;
     private String openServiceName;
@@ -34,7 +35,7 @@ public class HospitalEntity {
     private int totalNumberOfBeds;
     private float totalAreaSize;
 
-    public HospitalEntity(String openServiceName, int openLocalGovernmentCode, String managementNumber, LocalDateTime licenseDate, int businessStatus, int businessStatusCode, String phone, String fullAddress, String roadNameAddress, String hospitalName, String businessTypeName, int healthcareProviderCount, int patientRoomCount, int totalNumberOfBeds, float totalAreaSize) {
+    public Hospital(String openServiceName, int openLocalGovernmentCode, String managementNumber, LocalDateTime licenseDate, int businessStatus, int businessStatusCode, String phone, String fullAddress, String roadNameAddress, String hospitalName, String businessTypeName, int healthcareProviderCount, int patientRoomCount, int totalNumberOfBeds, float totalAreaSize) {
         this.openServiceName = openServiceName;
         this.openLocalGovernmentCode = openLocalGovernmentCode;
         this.managementNumber = managementNumber;
@@ -55,7 +56,7 @@ public class HospitalEntity {
 
 
     // HospitalEntity를 HospitalResponse Dto로 만들어주는 부분
-    public static HospitalResponse of(HospitalEntity hospital) {
+    public static HospitalResponse of(Hospital hospital) {
         return new HospitalResponse(hospital.getId(),
                 hospital.getRoadNameAddress(),
                 hospital.getHospitalName(),

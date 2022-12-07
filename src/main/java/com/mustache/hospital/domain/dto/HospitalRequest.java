@@ -1,5 +1,6 @@
-package com.mustache.hospital.domain;
+package com.mustache.hospital.domain.dto;
 
+import com.mustache.hospital.domain.Hospital;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
@@ -9,7 +10,7 @@ import java.time.LocalDateTime;
 @Getter
 @ToString
 @AllArgsConstructor
-public class HospitalDto {
+public class HospitalRequest {
     private int id;
     private String openServiceName;
     private int openLocalGovernmentCode;
@@ -27,8 +28,8 @@ public class HospitalDto {
     private int totalNumberOfBeds;
     private float totalAreaSize;
 
-    public HospitalEntity toEntity() {
-        return new HospitalEntity(
+    public Hospital toEntity() {
+        return new Hospital(
                 this.id, this.openServiceName, this.openLocalGovernmentCode,
                 this.managementNumber, this.licenseDate, this.businessStatus,
                 this.businessStatusCode, this.phone, this.fullAddress, this.roadNameAddress,

@@ -1,0 +1,19 @@
+{{>header}}
+
+{{#board}}
+    <form action="/hospital/board/{{id}}/update" method="post">
+        <div class="mb-3">
+            <label class="form-label">제목</label>
+            <input type="text" class="form-control" name="title" value="{{title}}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">내용</label>
+            <textarea class="form-control" rows="3" name="contents">{{contents}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm mb-2">작성하기</button>
+    </form>
+
+{{/board}}
+<a class='btn btn-primary btn-sm mb-2' href="/hospital/board/{{id}}">뒤로가기</a>
+<a class='btn btn-primary btn-sm mb-2' href="/hospital/board">게시판 목록</a>
+{{>footer}}

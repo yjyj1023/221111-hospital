@@ -1,0 +1,25 @@
+{{>header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">목록</th>
+        <th scope="col">제목</th>
+        <th scope="col">내용</th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider">
+    {{#board}}
+        <tr>
+            <th>{{id}}</th>
+            <td>{{title}}</td>
+            <td>{{contents}}</td>
+        </tr>
+    {{/board}}
+    </tbody>
+</table>
+<a class='btn btn-primary btn-sm mb-2' href="/hospital/board/new">새 글 작성</a>
+<a class='btn btn-primary btn-sm mb-2' href="/hospital/board">게시판 목록</a>
+<a class='btn btn-success btn-sm mb-2' href="/hospital/board/{{id}}/edit">수정 하기</a>
+<a class='btn btn-danger btn-sm mb-2' href="/hospital/board/{{id}}/delete">삭제 하기</a>
+
+{{>footer}}

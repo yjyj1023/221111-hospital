@@ -1,7 +1,7 @@
 package com.mustache.hospital.service;
 
-import com.mustache.hospital.domain.HospitalEntity;
-import com.mustache.hospital.domain.HospitalResponse;
+import com.mustache.hospital.domain.Hospital;
+import com.mustache.hospital.domain.dto.HospitalResponse;
 import com.mustache.hospital.repository.HospitalRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,9 +21,9 @@ public class HospitalService {
     }
 
     public HospitalResponse getHospital(Integer id){
-        Optional<HospitalEntity> optHospital = hospitalRepository.findById(id); // Entity
-        HospitalEntity hospital = optHospital.get();
-        HospitalResponse hospitalResponse = HospitalEntity.of(hospital); // DTO
+        Optional<Hospital> optHospital = hospitalRepository.findById(id); // Entity
+        Hospital hospital = optHospital.get();
+        HospitalResponse hospitalResponse = Hospital.of(hospital); // DTO
         if (hospital.getBusinessStatusCode() == 13) {
             hospitalResponse.setBusinessStatusName("영업중");
         } else if (hospital.getBusinessStatusCode() == 3) {
@@ -35,14 +35,14 @@ public class HospitalService {
     }
 
     @Transactional
-    public Page<HospitalEntity> getBoardList(Pageable pageable) {
+    public Page<Hospital> getBoardList(Pageable pageable) {
 
         return hospitalRepository.findAll(pageable);
 
     }
 
     @Transactional
-    public List<HospitalEntity> getSearchBoardList(String keyword, Pageable pageable) {
+    public List<Hospital> getSearchBoardList(String keyword, Pageable pageable) {
 
         return hospitalRepository.findByRoadNameAddressContaining(keyword, pageable);
 
