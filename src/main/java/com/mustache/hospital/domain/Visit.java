@@ -1,10 +1,7 @@
 package com.mustache.hospital.domain;
 
 import com.mustache.hospital.domain.dto.VisitResponse;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -13,7 +10,9 @@ import javax.persistence.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Visit {
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class Visit extends Base{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
